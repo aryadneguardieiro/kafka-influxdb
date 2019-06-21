@@ -10,6 +10,6 @@ influxdb:
   user: "cloud"
   password: "necos"
   dbname: "selected-metrics"
-encoder: "kafka_influxdb.encoder.echo_encoder"
+encoder: "kafka_influxdb.encoder.collectd_prometheus_encoder"
 buffer_size: 1000
 statistics: true
