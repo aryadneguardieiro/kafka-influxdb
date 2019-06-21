@@ -47,10 +47,11 @@ class Encoder(object):
         measurements = []
 
         for line in msg.decode().split("\n"):
+            pdb.set_trace()
+
             try:
                 # Set flag for float precision to get the same
                 # results for Python 2 and 3.
-                pdb.set_trace()
                 json_object = self.parse_line(line)
 
             except ValueError as e:
@@ -68,12 +69,12 @@ class Encoder(object):
                 tags = tags or Encoder.format_tags(json_object, ['labels'])
                 value = value or Encoder.format_value(json_object)
 
-                if (measurement and tags and value and time):
+                if measurement and tags and value and time:
                    measurements.append(Encoder.compose_data(measurement, tags, value, time))
 
-                except Exception as e:
-                    logging.debug("Error in input data: %s. Skipping.", e)
-                    continue
+            except Exception as e:
+                logging.debug("Error in input data: %s. Skipping.", e)
+                continue
 
         return measurements
 
