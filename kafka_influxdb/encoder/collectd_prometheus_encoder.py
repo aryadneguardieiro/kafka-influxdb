@@ -52,23 +52,29 @@ class Encoder(object):
                 # results for Python 2 and 3.
                 pdb.set_trace()
                 json_object = self.parse_line(line)
+
             except ValueError as e:
                 logging.debug("Error in encoder: %s", e)
                 continue
-            for entry in json_object:
-                try:
-                    # to set plugin, plugin_instance as the measurement name, just need pass ['plugin', 'plugin_instance']
-                    measurement = Encoder.format_measurement_name(
-                        entry, ['name'])
-                    tags = Encoder.format_tags(
-                        entry, ['labels'])
-                    value = Encoder.format_value(entry)
-                    time = Encoder.format_time(entry)
-                    measurements.append(Encoder.compose_data(
-                        measurement, tags, value, time))
+
+            measurement = None
+            tags = None
+            value = None
+            time = None
+
+            try:
+                time = time or Encoder.format_time(json_object)
+                measurement = measurement or Encoder.format_measurement_name(json_object, ['name'])
+                tags = tags or Encoder.format_tags(json_object, ['labels'])
+                value = value or Encoder.format_value(json_object)
+
+                if (measurement and tags and value and time):
+                   measurements.append(Encoder.compose_data(measurement, tags, value, time))
+
                 except Exception as e:
                     logging.debug("Error in input data: %s. Skipping.", e)
                     continue
+
         return measurements
 
     @staticmethod
