@@ -11,5 +11,5 @@ influxdb:
   password: "necos"
   dbname: "selected-metrics"
 encoder: "kafka_influxdb.encoder.collectd_prometheus_encoder"
-buffer_size: 1000
+buffer_size: 10
 statistics: true

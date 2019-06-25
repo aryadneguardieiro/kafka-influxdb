@@ -47,8 +47,6 @@ class Encoder(object):
         measurements = []
 
         for line in msg.decode().split("\n"):
-            pdb.set_trace()
-
             try:
                 # Set flag for float precision to get the same
                 # results for Python 2 and 3.
@@ -119,7 +117,7 @@ class Encoder(object):
 
     @staticmethod
     def format_value(entry):
-        values = entry['value']
+        value = entry['value']
         #if len(values) == 1:
         return "value={0!s}".format(value)
         #else:
