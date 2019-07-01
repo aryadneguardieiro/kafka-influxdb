@@ -4,6 +4,7 @@ except ImportError:
     import json
 
 import logging
+import pdb
 
 try:
     # Test for mypy support (requires Python 3)
@@ -54,15 +55,14 @@ class Encoder(object):
                 continue
             for entry in json_object:
                 try:
+                    pdb.set_trace()
                     # to set plugin, plugin_instance as the measurement name, just need pass ['plugin', 'plugin_instance']
                     measurement = Encoder.format_measurement_name(
-                        entry, ['plugin', 'plugin_instance', 'type'])
-                    tags = Encoder.format_tags(
-                        entry, ['host', 'type_instance'])
+                        entry, ['slice_id'])
                     value = Encoder.format_value(entry)
                     time = Encoder.format_time(entry)
                     measurements.append(Encoder.compose_data(
-                        measurement, tags, value, time))
+                        measurement, value, time))
                 except Exception as e:
                     logging.debug("Error in input data: %s. Skipping.", e)
                     continue
@@ -76,8 +76,8 @@ class Encoder(object):
 
     # following methods are added to support customizing measurement name, tags much more flexible
     @staticmethod
-    def compose_data(measurement, tags, value, time):
-        data = "{0!s},{1!s} {2!s} {3!s}".format(measurement, tags, value, time)
+    def compose_data(measurement, value, time):
+        data = "{0!s},{2!s} {3!s}".format(measurement, value, time)
         return data
 
     @staticmethod
