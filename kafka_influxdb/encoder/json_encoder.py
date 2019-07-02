@@ -44,7 +44,6 @@ class Encoder(object):
                 logging.debug("Error in encoder: %s", e)
                 continue
             try:
-                pdb.set_trace()
                 measurement = Encoder.format_measurement_name(
                     entry, 'measurement')
                 value = Encoder.format_value(entry)
@@ -67,7 +66,11 @@ class Encoder(object):
     # following methods are added to support customizing measurement name, tags much more flexible
     @staticmethod
     def compose_data(measurement, tags, value, time):
-        data = "{0!s} {1!s} {2!s}".format(measurement, value, time)
+        data = measurement
+        if tags != '':
+            data = data + ',' + tags
+        data = data + " {0!s} {1!s}".format(value, time)
+        pdb.set_trace()
         return data
 
     @staticmethod
