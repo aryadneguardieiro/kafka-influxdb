@@ -70,7 +70,6 @@ class Encoder(object):
         if tags != '':
             data = data + ',' + tags
         data = data + " {0!s} {1!s}".format(value, time)
-        pdb.set_trace()
         return data
 
     @staticmethod
@@ -80,8 +79,9 @@ class Encoder(object):
     @staticmethod
     def format_tags(entry, arg):
         tag = []
+        pdb.set_trace()
         for key, value in entry[arg]:
-            tag.append("{0!s}={1!s}".format(key, valyue))
+            tag.append("{0!s}={1!s}".format(key, value))
         return ','.join(tag)
 
     @staticmethod
