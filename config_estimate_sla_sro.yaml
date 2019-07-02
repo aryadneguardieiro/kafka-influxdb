@@ -10,6 +10,6 @@ influxdb:
   user: "cloud"
   password: "necos"
   dbname: "sro-sla-estimations"
-encoder: "kafka_influxdb.encoder.collectd_json_encoder"
+encoder: "kafka_influxdb.encoder.json_encoder"
 buffer_size: 10
 statistics: true
