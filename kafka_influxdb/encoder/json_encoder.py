@@ -66,8 +66,8 @@ class Encoder(object):
 
     # following methods are added to support customizing measurement name, tags much more flexible
     @staticmethod
-    def compose_data(measurement, value, time):
-        data = "{0!s},{2!s} {3!s}".format(measurement, value, time)
+    def compose_data(measurement, tags, value, time):
+        data = "{0!s},{1!s} {2!s} {3!s}".format(measurement, tags, value, time)
         return data
 
     @staticmethod
