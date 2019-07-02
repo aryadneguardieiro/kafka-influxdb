@@ -39,7 +39,7 @@ class Encoder(object):
 
         for line in msg.decode().split("\n"):
             try:
-                json_object = self.parse_line(line)
+                entry = self.parse_line(line)
             except ValueError as e:
                 logging.debug("Error in encoder: %s", e)
                 continue
