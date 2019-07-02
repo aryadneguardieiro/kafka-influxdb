@@ -24,7 +24,7 @@ class Encoder(object):
     [
        {
          "measurement": "measurement_name",
-         "values":      [0]
+         "values":      [0],
          "time":        1436372292,
          "tags":        {
                            "tag1": "value1"
@@ -53,9 +53,9 @@ class Encoder(object):
                     entry, ['tags'])
                 measurements.append(Encoder.compose_data(
                     measurement, tags, value, time))
-                except Exception as e:
-                    logging.debug("Error in input data: %s. Skipping.", e)
-                    continue
+            except Exception as e:
+                logging.debug("Error in input data: %s. Skipping.", e)
+                continue
         return measurements
 
     @staticmethod
