@@ -20,26 +20,6 @@ class Encoder(object):
     See https://collectd.org/wiki/index.php/JSON
 
     Sample measurements:
-
-    [{"values":[0],"dstypes":["derive"],"dsnames":["value"],"time":1436372292.412,"interval":10.000,"host":"26f2fc918f50","plugin":"cpu","plugin_instance":"1","type":"cpu","type_instance":"interrupt"}]
-
-    [
-       {
-         "values":  [1901474177],
-         "dstypes":  ["counter"],
-         "dsnames":    ["value"],
-         "time":      1280959128,
-         "interval":          10,
-         "host":            "leeloo.octo.it",
-         "plugin":          "cpu",
-         "plugin_instance": "0",
-         "type":            "cpu",
-         "type_instance":   "idle"
-       }
-    ]
-
-    The following measurement format is also supported, which has more than one value for each sample.
-    [{"values":[0.2, 0.3],"dstypes":["derive"],"dsnames":["cpu_usage", "mem_usage"],"time":1436372292.412,"interval":10.000,"host":"26f2fc918f50","plugin":"cpu","plugin_instance":"1","type":"cpu","type_instance":"interrupt"}]
     """
 
     def encode(self, msg):
