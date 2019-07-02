@@ -50,7 +50,7 @@ class Encoder(object):
                 value = Encoder.format_value(entry)
                 time = Encoder.format_time(entry)
                 tags = Encoder.format_tags(
-                    entry, ['tags'])
+                    entry, 'tags')
                 measurements.append(Encoder.compose_data(
                     measurement, tags, value, time))
             except Exception as e:
@@ -75,9 +75,9 @@ class Encoder(object):
         return entry[arg]
 
     @staticmethod
-    def format_tags(entry, args):
+    def format_tags(entry, arg):
         tag = []
-        for key, value in args:
+        for key, value in entry[arg]:
             tag.append("{0!s}={1!s}".format(key, valyue))
         return ','.join(tag)
 
