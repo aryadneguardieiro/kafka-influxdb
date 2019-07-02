@@ -44,20 +44,18 @@ class Encoder(object):
             except ValueError as e:
                 logging.debug("Error in encoder: %s", e)
                 continue
-            for entry in json_object:
-                try:
-                    pdb.set_trace()
-                    measurement = Encoder.format_measurement_name(
-                        entry, 'measurement')
-                    value = Encoder.format_value(entry)
-                    time = Encoder.format_time(entry)
-                    tags = Encoder.format_tags(
-                        entry, ['tags'])
-                    measurements.append(Encoder.compose_data(
-                        measurement, tags, value, time))
-                except Exception as e:
-                    logging.debug("Error in input data: %s. Skipping.", e)
-                    continue
+            pdb.set_trace()
+            measurement = Encoder.format_measurement_name(
+                entry, 'measurement')
+            value = Encoder.format_value(entry)
+            time = Encoder.format_time(entry)
+            tags = Encoder.format_tags(
+                entry, ['tags'])
+            measurements.append(Encoder.compose_data(
+                measurement, tags, value, time))
+        except Exception as e:
+            logging.debug("Error in input data: %s. Skipping.", e)
+            continue
         return measurements
 
     @staticmethod
