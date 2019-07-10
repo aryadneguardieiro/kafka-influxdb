@@ -79,9 +79,9 @@ class Encoder(object):
     @staticmethod
     def format_tags(entry, arg):
         tag = []
-        pdb.set_trace()
-        for key, value in entry[arg].items():
-            tag.append("{0!s}={1!s}".format(key, value))
+        if arg in entry:
+            for key, value in entry[arg].items():
+                tag.append("{0!s}={1!s}".format(key, value))
         return ','.join(tag)
 
     @staticmethod

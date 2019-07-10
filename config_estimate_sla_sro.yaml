@@ -11,5 +11,5 @@ influxdb:
   password: "necos"
   dbname: "sro-sla-estimations"
 encoder: "kafka_influxdb.encoder.json_encoder"
-buffer_size: 10
+buffer_size: 1
 statistics: true
