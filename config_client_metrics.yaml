@@ -9,7 +9,7 @@ influxdb:
   port: 8086
   user: "cloud"
   password: "necos"
-  dbname: "client-metrics"
+  dbname: "slice_1_slas"
 encoder: "kafka_influxdb.encoder.json_encoder"
 buffer_size: 10
 statistics: true
