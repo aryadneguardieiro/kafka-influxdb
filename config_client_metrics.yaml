@@ -10,6 +10,6 @@ influxdb:
   user: "cloud"
   password: "necos"
   dbname: "client-metrics"
-encoder: "kafka_influxdb.encoder.prometheus_encoder"
+encoder: "kafka_influxdb.encoder.json_encoder"
 buffer_size: 10
 statistics: true
