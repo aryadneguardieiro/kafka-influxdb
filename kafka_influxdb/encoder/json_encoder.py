@@ -36,7 +36,6 @@ class Encoder(object):
     def encode(self, msg):
         # type: (bytes) -> List[Text]
         measurements = []
-
         for line in msg.decode().split("\n"):
             try:
                 entry = self.parse_line(line)
