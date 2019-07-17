@@ -6,7 +6,7 @@ DEFAULT_CONFIG = {
         'group': 'kafka-influxdb',
         'reconnect_wait_time_ms': 1000,
         'reader': 'kafka_influxdb.reader.confluent',
-        'offset': 'largest',
+        'offset': 'latest',
     },
     'influxdb': {
         'host': 'localhost',
