@@ -92,7 +92,7 @@ class Encoder(object):
         values = entry['values']
         if len(values) == 1:
             return "value={0!s}".format(entry['values'][0])
-        else:
+        elif len(values) > 1:
             # influxdb supports writing a record with multiple field values.
             # e.g: 'cpu_load_short,host=server01,region=us-west mem=0.1,cpu=0.2 1422568543702900257'
             field_pairs = []
