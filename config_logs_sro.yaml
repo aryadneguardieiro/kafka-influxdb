@@ -2,7 +2,7 @@
 kafka:
   host: "192.168.0.111"
   port: 9092
-  topic: "sro-log"
+  topic: "sro-slice-1-log"
   reader: "kafka_influxdb.reader.confluent"
 influxdb:
   host: "localhost"
